@@ -11,7 +11,9 @@ public class Day02 {
 
 	public static void main(String[] args) throws IOException {
 		List<String> lines = new ArrayList<>();
-		BufferedReader reader = new BufferedReader(new FileReader(new File("").getAbsolutePath().concat("/src/input/Day02.dat")));
+		BufferedReader reader = new BufferedReader(new FileReader(
+				new File("").getAbsolutePath().concat("/src/input/Day02.dat")));
+		
 		String line;
 		while ((line = reader.readLine()) != null) {
 			lines.add(line);
@@ -28,10 +30,7 @@ public class Day02 {
 			char character = splitSpace[1].charAt(0);
 			String letters = splitSpace[2];
 			
-			int matches = 0;
-			for (char c : letters.toCharArray()) {
-				if (c == character) matches++;
-			}
+			int matches = (int) letters.chars().filter(c -> c == character).count();
 			
 			if (min <= matches && matches <= max) {
 				validPasswords++;

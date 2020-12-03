@@ -19,28 +19,35 @@ public class Day01 {
 		reader.close();
 		Integer[] array = list.toArray(new Integer[list.size()]);
 		
-		outer:
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array.length; j++) {
-				if (i == j) continue;
-				if (array[i] + array[j] == 2020) {
-					System.out.println(array[i] * array[j]);
-					break outer;
-				}
-			}
-		}
+		// Part One
+		System.out.println(part1(array, 2));
 		
-		outer:
+		// Part Two
+		System.out.println(part2(array));
+	}
+	
+	public static int part1(Integer[] array, int terms) {
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array.length; j++) {
-				for (int k = 0; k < array.length; k++) {
-					if (i == j || j == k || i == k) continue;
-					if (array[i] + array[j] + array[k] == 2020) {
-						System.out.println(array[i] * array[j] * array[k]);
-						break outer;
+				if (terms == 2) {
+					if (i == j)
+						continue;
+					if (array[i] + array[j] == 2020)
+						return array[i] * array[j];
+				} else if (terms == 3) {
+					for (int k = 0; k < array.length; k++) {
+						if (i == j || j == k || i == k)
+							continue;
+						if (array[i] + array[j] + array[k] == 2020)
+							return array[i] * array[j] * array[k];
 					}
 				}
 			}
 		}
+		return 0;
+	}
+	
+	public static int part2(Integer[] array) {
+		return part1(array, 3);
 	}
 }
