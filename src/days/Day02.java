@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Day 2: Password Philosophy
+ * Day 2's objective was to determine whether passwords had the correct number of a certain character within a range.
+ */
 public class Day02 {
 
 	public static void main(String[] args) throws IOException {

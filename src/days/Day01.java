@@ -7,6 +7,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Day 1: Report Repair
+ * The objective of Day 1's puzzle was to find multiple numbers in the puzzle input that sum to 2020.
+ * Part One was to find two numbers, and Part Two was to find three numbers.
+ */
 public class Day01 {
 	
 	public static void main(String[] args) throws IOException {
@@ -17,6 +22,7 @@ public class Day01 {
 			list.add(Integer.parseInt(line));
 		}
 		reader.close();
+		// Copying the ArrayList to an array because it's easier for me
 		Integer[] array = list.toArray(new Integer[list.size()]);
 		
 		// Part One

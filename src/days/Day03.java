@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Day 3: Toboggan Trajectory
+ * Day 3's objective was to determine how many trees someone would encounter while traversing a certain path on a grid.
+ */
 public class Day03 {
 	
 	public static void main(String[] args) throws IOException {
