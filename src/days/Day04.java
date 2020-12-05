@@ -60,7 +60,6 @@ public class Day04 {
 			}
 		}
 		
-		adjusted.forEach(sb -> System.out.println(sb));
 		System.out.println(validPassports);
 	}
 	
