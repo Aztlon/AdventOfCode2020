@@ -24,14 +24,19 @@ public class Day05 {
 		}
 		reader.close();
 		
-		// First time using an Iterator!
+		/*
+		 * First time using an Iterator!
+		 * I chose to use an Iterator because it allows adding & removing elements while iterating.
+		 * This is necessary because at the end of the loop, I replace elements with new values.
+		 * Alternatively, I could have put the lines in a List of Strings above, then added
+		 * the values to a HashMap below, and then I could just use a regular for each loop.
+		 */
 		Iterator<String> it = seats.keySet().iterator();
 		while (it.hasNext()) {
 			String s = it.next();
 			int min = 0;
 			int max = 127;
-			int row = 0;
-			int column = 0;
+			int row, column;
 			for (int i = 0; i < 7; i++) {
 				if (s.charAt(i) == 'F') {
 					max = (int) Math.round((double) (max + min) * 0.5D);
@@ -59,6 +64,7 @@ public class Day05 {
 	
 	// Get maximum seat ID
 	public static int part1(Map<String, Integer> seats) {
+		// Pretty handy method for finding the maximum value in a Collection
 		return seats.values().stream().mapToInt(i -> i).max().getAsInt();
 	}
 	
@@ -66,6 +72,13 @@ public class Day05 {
 	public static int part2(Map<String, Integer> seats) {
 		for (int id : seats.values()) {
 			if (id == part1(seats)) continue;
+			/*
+			 * Need to put the ++ before the variable because then it uses the incremented value
+			 * as the parameter for the containsValue() method. If I used id++ it would use the
+			 * old id as the parameter, and THEN increment the value. In that case, the whole
+			 * part2 method would return 0 because it would be checking if the Collection we're
+			 * looping through contains the very value we're using, which is always true.
+			 */
 			if (!seats.containsValue(++id))
 				return id;
 		}
